@@ -1,0 +1,9 @@
+SecurityEvent
+| where EventID in (4738)
+| where TargetAccount ==  "YourName\\SamAccountName"
+| project EventData 
+| parse EventData with * '"SubjectUserName">' SubjectUserName '<' * 
+| parse EventData with * '"TargetUserName">' TargetUserName '<' * 
+| parse EventData with * '"MemberName">' MemberName '<' * 
+| where isnotempty (SubjectUserName) 
+| project SubjectUserName, TargetUserName, MemberName
