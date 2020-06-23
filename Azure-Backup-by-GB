@@ -1,0 +1,1 @@
+AzureDiagnostics   | where Category == "AzureBackupReport"   | where CloudStorageInBytes_s != ""  | extend CloudStorageInGB = todouble(CloudStorageInBytes_s) / 1073741824  | summarize sum(CloudStorageInGB) by bin(ingestion_time(), 1d)
