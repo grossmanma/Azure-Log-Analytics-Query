@@ -1,0 +1,2 @@
+SecurityEvent | where EventID == 4739 or EventID == 5137  or EventID == 5141 or EventID == 5136 | where AccountType != "Machine" 
+| where EventData contains  "<Data Name=\"ObjectClass\">groupPolicyContainer</Data>" 
