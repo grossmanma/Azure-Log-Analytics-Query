@@ -1,0 +1,3 @@
+AzureActivity
+| where Resource startswith "CreateVm-" 
+| project Caller, ResourceGroup , Resource , TimeGenerated 
