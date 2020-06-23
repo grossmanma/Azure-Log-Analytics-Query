@@ -1,0 +1,1 @@
+AzureDiagnostics | where Category == "AzureBackupReport"  and TimeGenerated > ago(7d)   | where OperationName == "Job"  | where JobOperation_s == "Backup"  | summarize AggregatedValue = dcount(JobUniqueId_g) by JobStatus_s | order by AggregatedValue desc 
