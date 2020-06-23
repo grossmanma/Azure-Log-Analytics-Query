@@ -1,0 +1,9 @@
+search Computer == "NetScaler IP Address" or Computer == "NetScaler IP Address"
+| sort by TimeGenerated desc
+| where SyslogMessage contains "SSLVPN TCPCONN_TIMEDOUT"
+| extend msgArr=split(SyslogMessage, " ")
+| project Idle_timeout=TimeGenerated,
+Netscaler=msgArr[2],
+Username=msgArr[17],
+Client_IP=msgArr[20],
+Last_contact=msgArr[29]
