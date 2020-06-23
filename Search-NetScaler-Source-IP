@@ -1,0 +1,3 @@
+search Computer == "NetScaler IP Address" or Computer == "NetScaler IP Address"
+| sort by TimeGenerated desc
+| where SyslogMessage contains "ClientIP 10.6"  /You can search for part or all Client IP Address 
