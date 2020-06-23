@@ -1,0 +1,2 @@
+W3CIISLog
+| where scStatus contains "500" or  scStatus contains "501" or scStatus contains "502" or scStatus contains "503"  
